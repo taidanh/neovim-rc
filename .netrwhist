@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/etc/grub.d'
 let g:netrw_dirhist_3='/home/taidanh/Documents/Programs/educord/src'
 let g:netrw_dirhist_2='/home/taidanh/Documents/Programs/educord/src/data.json'
 let g:netrw_dirhist_1='/home/taidanh/Documents/Programs/educord/src/data.json/Server_ID'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_8='/home/taidanh/Documents/Programs/educord/src/data.json/Se
 let g:netrw_dirhist_7='/home/taidanh/Documents/Programs/educord/src/data.json/Server_ID/note1/field1'
 let g:netrw_dirhist_6='/home/taidanh/Documents/Programs/educord/src/data.json/Server_ID/note1'
 let g:netrw_dirhist_5='/home/taidanh/Documents/Programs/educord/src/data.json/Server_ID'
-let g:netrw_dirhist_4='/home/taidanh/Documents/Programs/educord/src/data.json'

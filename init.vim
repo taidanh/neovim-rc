@@ -1,4 +1,4 @@
-" Remap bindings
+	" Remap bindings
 let mapleader = " "
 nnoremap <Leader>; A;<Esc>
 nnoremap <Leader>h gT
@@ -7,9 +7,15 @@ nnoremap <Leader>s :w<Enter>
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
 
+" copy to clipboard
+nnoremap <Leader>p +p
+nnoremap <Leader>y +y
+vnoremap <Leader>p +p
+vnoremap <Leader>y +y
+
 inoremap jj <Esc>
 
-" AUTOCOMMANDS
+	" AUTOCOMMANDS
 
 augroup remember_folds
   autocmd!
@@ -26,7 +32,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" VIM PLUG
+	" VIM PLUG
 call plug#begin('~/.vim/plugged')
 
 Plug 'justinmk/vim-sneak'
@@ -39,7 +45,7 @@ Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
-" COC SETTINGS
+	" COC SETTINGS
 let g:coc_global_extensions = ['coc-tabnine']
 " Use <Tab> and <S-Tab> to navigate the completion list:
 
@@ -58,7 +64,7 @@ inoremap <silent><expr> <Tab>
 inoremap <silent><expr> <c-space> coc#refresh()
 
 
-" VIM SNEAK
+	" VIM SNEAK
 source $HOME/.config/nvim/plug-config/sneak.vim
 
 colorscheme gruvbox 
