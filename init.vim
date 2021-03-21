@@ -47,6 +47,8 @@ Plug 'morhetz/gruvbox'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -72,7 +74,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 	" VIM SNEAK
 source $HOME/.config/nvim/plug-config/sneak.vim
 
-colorscheme gruvbox 
+colorscheme nord 
 set nu rnu 
 syntax enable
 set cursorline
@@ -80,4 +82,11 @@ set undodir=$HOME/.config/nvim/undo
 set undofile
 set scrolloff=5 " Keep 3 lines below and above the cursor
 
+" LIGHTLINE
+if !has('gui_running')
+	set t_Co=256
+endif
 
+let g:lightline = {
+	\ 'colorscheme': 'nord',
+	\ }
