@@ -8,10 +8,15 @@ nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
 
 " copy to clipboard
-nnoremap <Leader>p +p
-nnoremap <Leader>y +y
-vnoremap <Leader>p +p
-vnoremap <Leader>y +y
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
 
 inoremap jj <Esc>
 
@@ -73,5 +78,6 @@ syntax enable
 set cursorline
 set undodir=$HOME/.config/nvim/undo
 set undofile
+set scrolloff=5 " Keep 3 lines below and above the cursor
 
 
