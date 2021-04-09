@@ -46,14 +46,16 @@ endif
 	" VIM PLUG
 call plug#begin('~/.vim/plugged')
 
-Plug 'justinmk/vim-sneak'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sickill/vim-monokai'
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
+Plug 'junegunn/seoul256.vim'
+
+Plug 'justinmk/vim-sneak'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
 
 call plug#end()
