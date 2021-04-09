@@ -20,17 +20,16 @@ vnoremap <leader>P "+P
 
 inoremap jj <Esc>
 
-	" AUTOCOMMANDS
+map <Leader>t :below terminal<CR>
 
+	" AUTOCOMMANDS
 augroup remember_folds
   autocmd!
   autocmd BufWinLeave * mkview
   autocmd BufWinEnter * silent! loadview
 augroup END
 
-map <Leader>t :below terminal<CR>
-
-" Install vim-plug if not already
+	" Install vim-plug if not already
 if empty(glob('~/.vim/autoload/plug.vim'))
    if has('nvim')
 	sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -59,42 +58,21 @@ Plug 'junegunn/limelight.vim'
 Plug 'itchyny/lightline.vim'
 
 call plug#end()
-
-	" COC SETTINGS
-let g:coc_global_extensions = ['coc-tabnine']
-" Use <Tab> and <S-Tab> to navigate the completion list:
-
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-
-" use <c-space>for trigger completion
-inoremap <silent><expr> <c-space> coc#refresh()
-
-
-	" VIM SNEAK
+"
+	" CONFIG SOURCE
 source $HOME/.config/nvim/plug-config/sneak.vim
+source $HOME/.config/nvim/plug-config/lightline.vim
+source $HOME/.config/nvim/plug-config/coc.vim
 
+	" COLORSCHEMES
+let g:seoul256_background = 235
+let g:seoul256_light_background = 256
 colorscheme nord 
+
+	" SETTINGS
 set nu rnu 
 syntax enable
 set cursorline
 set undodir=$HOME/.config/nvim/undo
 set undofile
 set scrolloff=5 " Keep 3 lines below and above the cursor
-
-" LIGHTLINE
-if !has('gui_running')
-	set t_Co=256
-endif
-
-let g:lightline = {
-	\ 'colorscheme': 'nord',
-	\ }
