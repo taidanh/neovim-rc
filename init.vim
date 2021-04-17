@@ -56,7 +56,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'itchyny/lightline.vim'
-
+"Plug 'SirVer/ultisnips'
 call plug#end()
 "
 	" CONFIG SOURCE
@@ -75,4 +75,16 @@ syntax enable
 set cursorline
 set undodir=$HOME/.config/nvim/undo
 set undofile
+
 set scrolloff=5 " Keep 3 lines below and above the cursor
+
+" FILE SETTINGS
+au FileType c setl sw=2 sts=2 tw=80 et commentstring=//\ %s
+au FileType cpp setl sw=2 sts=2 tw=80 et commentstring=//\ %s
+au FileType tex setl sw=2 sts=2 tw=80 et
+au FileType python setl sw=4 sts=4 tw=80 et
+au FileType julia setl sw=4 sts=4 tw=80 et
+au FileType javascript setl sw=2 sts=2 tw=80 et
+au FileType html setl sw=2 sts=2 tw=80 et
+au FileType sql setl sw=2 sts=2 tw=80 et
+au FileType lilypond setl sw=2 sts=2 tw=100 et commentstring=%\ %s
