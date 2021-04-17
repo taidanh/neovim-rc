@@ -76,3 +76,4 @@ set cursorline
 set undodir=$HOME/.config/nvim/undo
 set undofile
 set scrolloff=5 " Keep 3 lines below and above the cursor
+set mouse=a
