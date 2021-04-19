@@ -6,6 +6,7 @@ nnoremap <Leader>l gt
 nnoremap <Leader>s :w<Enter>
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
+nnoremap <Leader>cc :Codi!!
 
 " copy to clipboard
 vnoremap  <leader>y  "+y
@@ -62,7 +63,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'metakirby5/codi.vim'
 "Plug 'SirVer/ultisnips'
+"
 call plug#end()
 "
 	" CONFIG SOURCE
