@@ -21,8 +21,14 @@ vnoremap <leader>P "+P
 inoremap jj <Esc>
 
 map <Leader>t :below terminal<CR>
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+map - <C-W>-
+map + <C-W>+
 
-	" AUTOCOMMANDS
+" AUTOCOMMANDS
 augroup remember_folds
   autocmd!
   autocmd BufWinLeave * mkview
@@ -75,6 +81,7 @@ syntax enable
 set cursorline
 set undodir=$HOME/.config/nvim/undo
 set undofile
+set mouse=a
 
 set scrolloff=5 " Keep 3 lines below and above the cursor
 
