@@ -87,6 +87,8 @@ set undodir=$HOME/.config/nvim/undo
 set undofile
 set mouse=a
 set scrolloff=5 " Keep 3 lines below and above the cursor
+set splitright
+set splitbelow
 
 " FILE SETTINGS
 au FileType c setl sw=2 sts=2 tw=80 et commentstring=//\ %s
