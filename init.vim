@@ -39,9 +39,8 @@ augroup END
 
 	" Install vim-plug if not already
 if empty(glob('~/.vim/autoload/plug.vim'))
-   if has('nvim')
-	sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+   if has('nvim') && !has('vim-plug')
+	silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
    else
 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -91,8 +90,8 @@ set splitright
 set splitbelow
 
 " FILE SETTINGS
-au FileType c setl sw=2 sts=2 tw=80 et commentstring=//\ %s
-au FileType cpp setl sw=2 sts=2 tw=80 et commentstring=//\ %s
+au FileType c setl sw=4 sts=4 tw=80 et commentstring=//\ %s
+au FileType cpp setl sw=4 sts=4 tw=80 et commentstring=//\ %s
 au FileType tex setl sw=2 sts=2 tw=80 et
 au FileType python setl sw=4 sts=4 tw=80 et
 au FileType julia setl sw=4 sts=4 tw=80 et
