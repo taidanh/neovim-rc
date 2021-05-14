@@ -56,6 +56,7 @@ Plug 'sickill/vim-monokai'
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/seoul256.vim'
+Plug 'sainnhe/sonokai'
 
 Plug 'justinmk/vim-sneak'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -64,7 +65,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'metakirby5/codi.vim'
-"Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 "
 call plug#end()
 "
@@ -74,9 +75,13 @@ source $HOME/.config/nvim/plug-config/lightline.vim
 source $HOME/.config/nvim/plug-config/coc.vim
 
 	" COLORSCHEMES
+if has('termguicolors')
+    set termguicolors
+endif
 let g:seoul256_background = 235
 let g:seoul256_light_background = 256
-colorscheme nord 
+let g:sonokai_style = 'atlantis'
+colorscheme sonokai 
 
 	" SETTINGS
 set nu rnu 
