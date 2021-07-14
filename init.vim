@@ -22,6 +22,10 @@ vnoremap <leader>P "+P
 
 inoremap jj <Esc>
 
+" Terminal remaps
+tnoremap <Esc> <C-\><C-n>
+tnoremap jj <C-\><C-n>
+
 map <Leader>t :below terminal<CR>
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -66,9 +70,9 @@ Plug 'junegunn/limelight.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'metakirby5/codi.vim'
 Plug 'SirVer/ultisnips'
-"
+
 call plug#end()
-"
+
 	" CONFIG SOURCE
 source $HOME/.config/nvim/plug-config/sneak.vim
 source $HOME/.config/nvim/plug-config/lightline.vim
@@ -80,7 +84,8 @@ if has('termguicolors')
 endif
 let g:seoul256_background = 235
 let g:seoul256_light_background = 256
-let g:sonokai_style = 'atlantis'
+let g:sonokai_style = 'shusia'
+"let g:sonokai_transparent_background = 1
 colorscheme sonokai 
 
 	" SETTINGS
