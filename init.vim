@@ -1,13 +1,13 @@
-	" Remap bindings
+" Remap bindings
 let mapleader = " "
-nnoremap <Leader>; A;<Esc>
-nnoremap <Leader>h gT
-nnoremap <Leader>l gt
+nnoremap <Leader>; A;<Esc>''
+nnoremap <Leader>h gt
+nnoremap <Leader>l gT
 nnoremap <Leader>s :w<Enter>
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
 nnoremap <Leader>cc :Codi!!
-nnoremap <Leader><Tab> ddko
+nnoremap <Leader><Tab> cc
 
 " copy to clipboard
 vnoremap  <leader>y  "+y
@@ -36,59 +36,63 @@ map + <C-W>+
 
 " AUTOCOMMANDS
 augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
+	autocmd!
+	autocmd BufWinLeave * mkview
+	autocmd BufWinEnter * silent! loadview
 augroup END
 
-	" Install vim-plug if not already
-if empty(glob('~/.vim/autoload/plug.vim'))
-   if has('nvim') && !has('vim-plug')
-	silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-   else
-	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-	    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-   endif
-endif
-
-	" VIM PLUG
+" VIM PLUG
 call plug#begin('~/.vim/plugged')
 
-Plug 'sickill/vim-monokai'
-Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
-Plug 'junegunn/seoul256.vim'
-Plug 'sainnhe/sonokai'
+if !exists('g:vscode') " if not using vim in vscode
+	Plug 'sickill/vim-monokai'
+	Plug 'morhetz/gruvbox'
+	Plug 'arcticicestudio/nord-vim'
+	Plug 'junegunn/seoul256.vim'
+	Plug 'sainnhe/sonokai'
 
-Plug 'justinmk/vim-sneak'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'metakirby5/codi.vim'
-Plug 'SirVer/ultisnips'
+	Plug 'justinmk/vim-sneak'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'itchyny/lightline.vim'
+	Plug 'metakirby5/codi.vim'
+endif
+Plug 'tweekmonster/startuptime.vim'
 
 call plug#end()
 
+if !exists('g:vscode') " if not using vim in vscode
+
+	" Install vim-plug if not already
+	" if empty(glob('~/.vim/autoload/plug.vim'))
+	"    if has('nvim') && !has('vim-plug')
+	" 	silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	" 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	"    else
+	" 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+	" 	    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	" 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	"    endif
+	" endif
+
 	" CONFIG SOURCE
-source $HOME/.config/nvim/plug-config/sneak.vim
-source $HOME/.config/nvim/plug-config/lightline.vim
-source $HOME/.config/nvim/plug-config/coc.vim
+	source $HOME/.config/nvim/plug-config/sneak.vim
+	source $HOME/.config/nvim/plug-config/lightline.vim
+	source $HOME/.config/nvim/plug-config/coc.vim
 
 	" COLORSCHEMES
-if has('termguicolors')
-    set termguicolors
+	if has('termguicolors')
+		set termguicolors
+	endif
+	let g:seoul256_background = 235
+	let g:seoul256_light_background = 256
+	let g:sonokai_style = 'shusia'
+	"let g:sonokai_transparent_background = 1
+	colorscheme seoul256
 endif
-let g:seoul256_background = 235
-let g:seoul256_light_background = 256
-let g:sonokai_style = 'shusia'
-"let g:sonokai_transparent_background = 1
-colorscheme sonokai 
 
-	" SETTINGS
+
+" SETTINGS
 set nu rnu 
 syntax enable
 set cursorline
@@ -102,10 +106,11 @@ set splitbelow
 " FILE SETTINGS
 au FileType c setl sw=4 sts=4 tw=80 et commentstring=//\ %s
 au FileType cpp setl sw=4 sts=4 tw=80 et commentstring=//\ %s
-au FileType tex setl sw=2 sts=2 tw=80 et
-au FileType python setl sw=4 sts=4 tw=80 et
-au FileType julia setl sw=4 sts=4 tw=80 et
-au FileType javascript setl sw=2 sts=2 tw=80 et
 au FileType html setl sw=2 sts=2 tw=80 et
-au FileType sql setl sw=2 sts=2 tw=80 et
+au FileType javascript setl sw=2 sts=2 tw=80 et
+au FileType julia setl sw=4 sts=4 tw=80 et
 au FileType lilypond setl sw=2 sts=2 tw=100 et commentstring=%\ %s
+au FileType python setl sw=4 sts=4 tw=80 et
+au FileType sql setl sw=2 sts=2 tw=80 et
+au FileType tex setl sw=2 sts=2 tw=80 et
+au FileType vim setl sw=4 sts=4 tw=80 et commentstring=" %s
