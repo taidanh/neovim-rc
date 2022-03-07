@@ -13,6 +13,11 @@ nnoremap <Leader>n :bnext<Enter>
 nnoremap <Leader>p :bprev<CR>
 nnoremap <Leader>b :buffers<CR>:buffer<Space>
 nnoremap <Leader>/ :s/^/\/\//g<Enter>
+nnoremap <Leader>g :BufferLineCycleNext<CR>
+nnoremap <Leader>a :BufferLineCyclePrev<CR>
+nnoremap <Leader>f :BufferLineMoveNext<CR>
+nnoremap <Leader>d :BufferLineMovePrev<CR>
+nnoremap <Leader>c :bd<CR>
 
 " copy to clipboard
 vnoremap  <leader>y  "+y
@@ -54,19 +59,25 @@ augroup END
 call plug#begin('~/.vim/plugged')
 
 if !exists('g:vscode') " if not using vim in vscode
-	Plug 'sickill/vim-monokai'
-	Plug 'morhetz/gruvbox'
-	Plug 'arcticicestudio/nord-vim'
-	Plug 'junegunn/seoul256.vim'
-	Plug 'sainnhe/sonokai'
+    Plug 'sickill/vim-monokai'
+    Plug 'morhetz/gruvbox'
+    Plug 'arcticicestudio/nord-vim'
+    Plug 'junegunn/seoul256.vim'
+    Plug 'sainnhe/sonokai'
+    Plug 'ghifarit53/tokyonight-vim'
 
-	Plug 'justinmk/vim-sneak'
-"	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        Plug 'ms-jpq/coq_nvim'
-        Plug 'neovim/nvim-lspconfig'
-	Plug 'itchyny/lightline.vim'
-	Plug 'metakirby5/codi.vim'
-	Plug 'github/copilot.vim'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'williamboman/nvim-lsp-installer'
+    Plug 'ms-jpq/coq_nvim'
+    Plug 'justinmk/vim-sneak'
+    Plug 'itchyny/lightline.vim'
+    Plug 'github/copilot.vim'
+    Plug 'wfxr/minimap.vim'
+    Plug 'lukas-reineke/indent-blankline.nvim'
+    Plug 'kyazdani42/nvim-web-devicons' " for file icons
+    Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'akinsho/bufferline.nvim'
 endif
 Plug 'tweekmonster/startuptime.vim'
 
@@ -91,6 +102,10 @@ if !exists('g:vscode') " if not using vim in vscode
 	source $HOME/.config/nvim/plug-config/lightline.vim
 	" source $HOME/.config/nvim/plug-config/coc.vim
         source $HOME/.config/nvim/plug-config/lsp.lua
+        source $HOME/.config/nvim/plug-config/nvim-tree.vim
+        source $HOME/.config/nvim/plug-config/indent-blankline.vim
+        source $HOME/.config/nvim/plug-config/tree-sitter.lua
+        source $HOME/.config/nvim/plug-config/bufferline.lua
 
 	" COLORSCHEMES
 	if has('termguicolors')
@@ -100,7 +115,10 @@ if !exists('g:vscode') " if not using vim in vscode
 	let g:seoul256_light_background = 252
 	let g:sonokai_style = 'shusia'
 	"let g:sonokai_transparent_background = 1
-	colorscheme seoul256
+        let g:tokyonight_style = 'night'
+        let g:tokyonight_enable_italic = 1
+        let g:tokyonight_current_word = 'bold'
+	colorscheme tokyonight
 endif
 
 
