@@ -40,7 +40,7 @@ tnoremap <C-j> <C-\><C-n><C-W>j
 tnoremap <C-k> <C-\><C-n><C-W>k
 tnoremap <C-l> <C-\><C-n><C-W>l
 
-map <Leader>t :below terminal<CR>
+map <Leader>t :sp term://zsh<CR>
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
