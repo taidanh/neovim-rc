@@ -17,7 +17,7 @@ nnoremap <Leader>g :BufferLineCycleNext<CR>
 nnoremap <Leader>a :BufferLineCyclePrev<CR>
 nnoremap <Leader>f :BufferLineMoveNext<CR>
 nnoremap <Leader>d :BufferLineMovePrev<CR>
-nnoremap <Leader>c :bd<CR>
+nnoremap <Leader>c :b#<bar>bd#<CR>
 
 " copy to clipboard
 vnoremap  <leader>y  "+y
