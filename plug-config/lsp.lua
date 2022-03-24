@@ -38,7 +38,14 @@ require'lspconfig'.rls.setup{coq.lsp_ensure_capabilities()}
 --                                          | |        
 --                                          |_|
 
+-- ______  _   _ ______ 
+-- | ___ \| | | || ___ \
+-- | |_/ /| |_| || |_/ /
+-- |  __/ |  _  ||  __/ 
+-- | |    | | | || |    
+-- \_|    \_| |_/\_| 
 
+require'lspconfig'.intelephense.setup{coq.lsp_ensure_capabilities()}
 
 --  _               _     
 -- | |             | |    
@@ -47,7 +54,7 @@ require'lspconfig'.rls.setup{coq.lsp_ensure_capabilities()}
 -- | |_) | (_| \__ \ | | |
 -- |_.__/ \__,_|___/_| |_|
 
-require'lspconfig'.bashls.setup{coq.lsp_ensure_capabilities()}
+-- require'lspconfig'.bashls.setup{coq.lsp_ensure_capabilities()}
 
 --  _             
 -- | |            
@@ -84,3 +91,5 @@ require'lspconfig'.bashls.setup{coq.lsp_ensure_capabilities()}
 --     },
 --   },
 -- })}
+
+vim.cmd([[COQnow -s]])

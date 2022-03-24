@@ -13,11 +13,6 @@ nnoremap <Leader>n :bnext<Enter>
 nnoremap <Leader>p :bprev<CR>
 nnoremap <Leader>b :buffers<CR>:buffer<Space>
 nnoremap <Leader>/ :s/^/\/\//g<Enter>
-nnoremap <Leader>g :BufferLineCycleNext<CR>
-nnoremap <Leader>a :BufferLineCyclePrev<CR>
-nnoremap <Leader>f :BufferLineMoveNext<CR>
-nnoremap <Leader>d :BufferLineMovePrev<CR>
-nnoremap <Leader>c :b#<bar>bd#<CR>
 
 " copy to clipboard
 vnoremap  <leader>y  "+y
@@ -69,6 +64,7 @@ if !exists('g:vscode') " if not using vim in vscode
     Plug 'neovim/nvim-lspconfig'
     Plug 'williamboman/nvim-lsp-installer'
     Plug 'ms-jpq/coq_nvim'
+    Plug 'jiangmiao/auto-pairs'
     Plug 'justinmk/vim-sneak'
     Plug 'itchyny/lightline.vim'
     Plug 'github/copilot.vim'
@@ -78,6 +74,9 @@ if !exists('g:vscode') " if not using vim in vscode
     Plug 'kyazdani42/nvim-tree.lua'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'akinsho/bufferline.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'voldikss/vim-floaterm'
 endif
 Plug 'tweekmonster/startuptime.vim'
 
@@ -85,27 +84,16 @@ call plug#end()
 
 if !exists('g:vscode') " if not using vim in vscode
 
-	" Install vim-plug if not already
-	" if empty(glob('~/.vim/autoload/plug.vim'))
-	"    if has('nvim') && !has('vim-plug')
-	" 	silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-	" 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-	"    else
-	" 	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-	" 	    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	" 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-	"    endif
-	" endif
-
 	" CONFIG SOURCE
-	source $HOME/.config/nvim/plug-config/sneak.vim
 	source $HOME/.config/nvim/plug-config/lightline.vim
-	" source $HOME/.config/nvim/plug-config/coc.vim
+	source $HOME/.config/nvim/plug-config/sneak.vim
+        source $HOME/.config/nvim/plug-config/bufferline.vim
+        source $HOME/.config/nvim/plug-config/floaterm.vim
+        source $HOME/.config/nvim/plug-config/indent-blankline.vim
         source $HOME/.config/nvim/plug-config/lsp.lua
         source $HOME/.config/nvim/plug-config/nvim-tree.vim
-        source $HOME/.config/nvim/plug-config/indent-blankline.vim
+        source $HOME/.config/nvim/plug-config/telescope.vim
         source $HOME/.config/nvim/plug-config/tree-sitter.lua
-        source $HOME/.config/nvim/plug-config/bufferline.lua
 
 	" COLORSCHEMES
 	if has('termguicolors')
@@ -120,24 +108,6 @@ if !exists('g:vscode') " if not using vim in vscode
         let g:tokyonight_current_word = 'bold'
 	colorscheme tokyonight
 endif
-
-
-" function to toggle the status of Copilot
-function! ToggleCopilot()
-    if has('nvim')
-        if !exists(b:copilot_enabled)
-            let b:copilot_enabled = v:true
-        elseif b:copilot_enabled
-            let b:copilot_enabled = v:false
-        else 
-            let b:copilot_enabled = v:true
-        endif
-    endif
-endfunction!
-
-" functions! ToggleCommentString()
-"     
-" endfunction!
 
 " SETTINGS
 set nu rnu 
@@ -160,6 +130,7 @@ au FileType julia setl sw=4 sts=4 tw=80 et
 au FileType lilypond setl sw=2 sts=2 tw=100 et commentstring=%\ %s
 au FileType lua setl sw=4 sts=4 tw=80 et commentstring=--\ %s
 au FileType python setl sw=4 sts=4 tw=80 et
+au FIleType php setl sw=4 sts=4 tw=80 et
 au FileType sql setl sw=2 sts=2 tw=80 et
 au FileType tex setl sw=2 sts=2 tw=80 et
 au FileType vim setl sw=4 sts=4 tw=80 et commentstring=" %s
