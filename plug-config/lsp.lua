@@ -91,5 +91,3 @@ require'lspconfig'.intelephense.setup{coq.lsp_ensure_capabilities()}
 --     },
 --   },
 -- })}
-
-vim.cmd([[COQnow -s]])

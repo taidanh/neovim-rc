@@ -64,18 +64,18 @@ if !exists('g:vscode') " if not using vim in vscode
     Plug 'neovim/nvim-lspconfig'
     Plug 'williamboman/nvim-lsp-installer'
     Plug 'ms-jpq/coq_nvim'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'justinmk/vim-sneak'
-    Plug 'itchyny/lightline.vim'
     Plug 'github/copilot.vim'
     Plug 'wfxr/minimap.vim'
+    Plug 'jiangmiao/auto-pairs'
     Plug 'lukas-reineke/indent-blankline.nvim'
+    Plug 'justinmk/vim-sneak'
+    Plug 'itchyny/lightline.vim'
     Plug 'kyazdani42/nvim-web-devicons' " for file icons
     Plug 'kyazdani42/nvim-tree.lua'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'akinsho/bufferline.nvim'
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
     Plug 'voldikss/vim-floaterm'
 endif
 Plug 'tweekmonster/startuptime.vim'
@@ -84,29 +84,29 @@ call plug#end()
 
 if !exists('g:vscode') " if not using vim in vscode
 
-	" CONFIG SOURCE
-	source $HOME/.config/nvim/plug-config/lightline.vim
-	source $HOME/.config/nvim/plug-config/sneak.vim
-        source $HOME/.config/nvim/plug-config/bufferline.vim
-        source $HOME/.config/nvim/plug-config/floaterm.vim
-        source $HOME/.config/nvim/plug-config/indent-blankline.vim
-        source $HOME/.config/nvim/plug-config/lsp.lua
-        source $HOME/.config/nvim/plug-config/nvim-tree.vim
-        source $HOME/.config/nvim/plug-config/telescope.vim
-        source $HOME/.config/nvim/plug-config/tree-sitter.lua
+    " CONFIG SOURCE
+    source $HOME/.config/nvim/plug-config/coq.vim
+    source $HOME/.config/nvim/plug-config/lightline.vim
+    source $HOME/.config/nvim/plug-config/sneak.vim
+    source $HOME/.config/nvim/plug-config/bufferline.vim
+    source $HOME/.config/nvim/plug-config/floaterm.vim
+    source $HOME/.config/nvim/plug-config/indent-blankline.vim
+    source $HOME/.config/nvim/plug-config/lsp.lua
+    source $HOME/.config/nvim/plug-config/tree-sitter.lua
+    source $HOME/.config/nvim/plug-config/nvim-tree.vim
 
-	" COLORSCHEMES
-	if has('termguicolors')
-		set termguicolors
-	endif
-	let g:seoul256_background = 235
-	let g:seoul256_light_background = 252
-	let g:sonokai_style = 'shusia'
-	"let g:sonokai_transparent_background = 1
-        let g:tokyonight_style = 'night'
-        let g:tokyonight_enable_italic = 1
-        let g:tokyonight_current_word = 'bold'
-	colorscheme tokyonight
+    " COLORSCHEMES
+    if has('termguicolors')
+            set termguicolors
+    endif
+    let g:seoul256_background = 235
+    let g:seoul256_light_background = 252
+    let g:sonokai_style = 'shusia'
+    "let g:sonokai_transparent_background = 1
+    let g:tokyonight_style = 'night'
+    let g:tokyonight_enable_italic = 1
+    let g:tokyonight_current_word = 'bold'
+    colorscheme tokyonight
 endif
 
 " SETTINGS
