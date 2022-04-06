@@ -3,16 +3,11 @@ let mapleader = " "
 nnoremap <Leader>; A;<Esc>
 nnoremap <Leader>h gT
 nnoremap <Leader>l gt
-nnoremap <Leader>s :w<Enter>
+nnoremap <Leader>s :w<CR>
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
-nnoremap <Leader>cc :Codi!!
 nnoremap <Leader><Tab> cc
-nnoremap <Leader>ct :call ToggleCopilot()<Enter>
-nnoremap <Leader>n :bnext<Enter>
-nnoremap <Leader>p :bprev<CR>
-nnoremap <Leader>b :buffers<CR>:buffer<Space>
-nnoremap <Leader>/ :s/^/\/\//g<Enter>
+nnoremap <Leader>/ :s/^/\/\//g<CR>
 
 " copy to clipboard
 vnoremap  <leader>y  "+y
@@ -34,6 +29,11 @@ tnoremap <C-h> <C-\><C-n><C-W>h
 tnoremap <C-j> <C-\><C-n><C-W>j
 tnoremap <C-k> <C-\><C-n><C-W>k
 tnoremap <C-l> <C-\><C-n><C-W>l
+
+nnoremap <leader>bf <cmd>Clap files<cr>
+nnoremap <leader>bg <cmd>Clap grep2<cr>
+nnoremap <leader>bb <cmd>Clap buffers<cr>
+nnoremap <leader>bt <cmd>Clap proj_tags<cr>
 
 map <Leader>t :sp term://zsh<CR>
 map <C-j> <C-W>j
@@ -62,7 +62,6 @@ if !exists('g:vscode') " if not using vim in vscode
     Plug 'ghifarit53/tokyonight-vim'
 
     Plug 'neovim/nvim-lspconfig'
-    Plug 'williamboman/nvim-lsp-installer'
     Plug 'ms-jpq/coq_nvim'
     Plug 'github/copilot.vim'
     Plug 'wfxr/minimap.vim'
@@ -86,6 +85,7 @@ if !exists('g:vscode') " if not using vim in vscode
 
     " CONFIG SOURCE
     source $HOME/.config/nvim/plug-config/coq.vim
+    source $HOME/.config/nvim/plug-config/clap.vim
     source $HOME/.config/nvim/plug-config/lightline.vim
     source $HOME/.config/nvim/plug-config/sneak.vim
     source $HOME/.config/nvim/plug-config/bufferline.vim
@@ -129,6 +129,7 @@ au FileType javascript setl sw=2 sts=2 tw=80 et
 au FileType julia setl sw=4 sts=4 tw=80 et
 au FileType lilypond setl sw=2 sts=2 tw=100 et commentstring=%\ %s
 au FileType lua setl sw=4 sts=4 tw=80 et commentstring=--\ %s
+au FileType haskell setl sw=4 sts=4 tw=80 et commentstring=--\ %s
 au FileType python setl sw=4 sts=4 tw=80 et
 au FIleType php setl sw=4 sts=4 tw=80 et
 au FileType sql setl sw=2 sts=2 tw=80 et

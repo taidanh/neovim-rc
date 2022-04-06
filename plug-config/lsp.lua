@@ -7,7 +7,7 @@ local coq = require "coq"
 -- | (__ 
 --  \___|
 
-require'lspconfig'.clangd.setup{coq.lsp_ensure_capabilities()}
+lsp.clangd.setup{coq.lsp_ensure_capabilities()}
 
 --              _   _                 
 --             | | | |                
@@ -18,7 +18,7 @@ require'lspconfig'.clangd.setup{coq.lsp_ensure_capabilities()}
 -- | |     __/ |                      
 -- |_|    |___/
 
-require'lspconfig'.pyright.setup{coq.lsp_ensure_capabilities()}
+lsp.pyright.setup{coq.lsp_ensure_capabilities()}
 
 --                 _   
 --                | |  
@@ -27,7 +27,16 @@ require'lspconfig'.pyright.setup{coq.lsp_ensure_capabilities()}
 -- | |  | |_| \__ \ |_ 
 -- |_|   \__,_|___/\__|
 
-require'lspconfig'.rls.setup{coq.lsp_ensure_capabilities()}
+lsp.rls.setup{coq.lsp_ensure_capabilities()}
+
+--  _               _        _ _ 
+-- | |             | |      | | |
+-- | |__   __ _ ___| | _____| | |
+-- | '_ \ / _` / __| |/ / _ \ | |
+-- | | | | (_| \__ \   <  __/ | |
+-- |_| |_|\__,_|___/_|\_\___|_|_|
+
+lsp.hls.setup{coq.lsp_ensure_capabilities()}
 
 --    ___                  _____           _       _   
 --   |_  |                /  ___|         (_)     | |  
@@ -45,7 +54,7 @@ require'lspconfig'.rls.setup{coq.lsp_ensure_capabilities()}
 -- | |    | | | || |    
 -- \_|    \_| |_/\_| 
 
-require'lspconfig'.intelephense.setup{coq.lsp_ensure_capabilities()}
+lsp.intelephense.setup{coq.lsp_ensure_capabilities()}
 
 --  _               _     
 -- | |             | |    
@@ -54,7 +63,7 @@ require'lspconfig'.intelephense.setup{coq.lsp_ensure_capabilities()}
 -- | |_) | (_| \__ \ | | |
 -- |_.__/ \__,_|___/_| |_|
 
--- require'lspconfig'.bashls.setup{coq.lsp_ensure_capabilities()}
+-- lsp.bashls.setup{coq.lsp_ensure_capabilities()}
 
 --  _             
 -- | |            
@@ -67,7 +76,7 @@ require'lspconfig'.intelephense.setup{coq.lsp_ensure_capabilities()}
 -- table.insert(runtime_path, "lua/?.lua")
 -- table.insert(runtime_path, "lua/?/init.lua")
 
--- require'lspconfig'.sumneko_lua.setup {coq.lsp_ensure_capabilities({
+-- lsp.sumneko_lua.setup {coq.lsp_ensure_capabilities({
 --   settings = {
 --     Lua = {
 --       runtime = {
