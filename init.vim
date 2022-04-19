@@ -8,6 +8,7 @@ nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
 nnoremap <Leader><Tab> cc
 nnoremap <Leader>/ :s/^/\/\//g<CR>
+nnoremap <Leader>e <cmd>lua vim.diagnostic.open_float()<CR>
 
 " copy to clipboard
 vnoremap  <leader>y  "+y
@@ -50,6 +51,9 @@ augroup remember_folds
 	autocmd BufWinEnter * silent! loadview
 augroup END
 
+" autocommand to locally set nonu and nornu in terminal
+autocmd TermOpen * setlocal nonu nornu
+
 " VIM PLUG
 call plug#begin('~/.vim/plugged')
 
@@ -62,16 +66,19 @@ if !exists('g:vscode') " if not using vim in vscode
     Plug 'ghifarit53/tokyonight-vim'
 
     Plug 'neovim/nvim-lspconfig'
-    Plug 'ms-jpq/coq_nvim'
+    Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+    Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
+    Plug 'ray-x/lsp_signature.nvim'
     Plug 'github/copilot.vim'
     Plug 'wfxr/minimap.vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'justinmk/vim-sneak'
-    Plug 'itchyny/lightline.vim'
+    Plug 'feline-nvim/feline.nvim'
     Plug 'kyazdani42/nvim-web-devicons' " for file icons
     Plug 'kyazdani42/nvim-tree.lua'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'glapa-grossklag/elsa.vim'
     Plug 'akinsho/bufferline.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
@@ -83,10 +90,16 @@ call plug#end()
 
 if !exists('g:vscode') " if not using vim in vscode
 
+    " setup GUI COLORS before sourcing
+    if has('termguicolors')
+            set termguicolors
+    endif
+
     " CONFIG SOURCE
     source $HOME/.config/nvim/plug-config/coq.vim
     source $HOME/.config/nvim/plug-config/clap.vim
-    source $HOME/.config/nvim/plug-config/lightline.vim
+    " source $HOME/.config/nvim/plug-config/lightline.vim
+    source $HOME/.config/nvim/plug-config/feline.lua
     source $HOME/.config/nvim/plug-config/sneak.vim
     source $HOME/.config/nvim/plug-config/bufferline.vim
     source $HOME/.config/nvim/plug-config/floaterm.vim
@@ -96,9 +109,6 @@ if !exists('g:vscode') " if not using vim in vscode
     source $HOME/.config/nvim/plug-config/nvim-tree.vim
 
     " COLORSCHEMES
-    if has('termguicolors')
-            set termguicolors
-    endif
     let g:seoul256_background = 235
     let g:seoul256_light_background = 252
     let g:sonokai_style = 'shusia'

@@ -1,5 +1,13 @@
 local lsp = require "lspconfig"
 local coq = require "coq"
+cfg = {
+    bind = true,
+    handler_opts = {
+        border = "rounded"
+    }
+}
+
+require "lsp_signature".setup(cfg)
 
 --   ASCII Font is "Doom" on http://www.patorjk.com/software/taag
 --   ___ 
