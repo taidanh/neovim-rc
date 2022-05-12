@@ -10,6 +10,9 @@ nnoremap <Leader><Tab> cc
 nnoremap <Leader>/ :s/^/\/\//g<CR>
 nnoremap <Leader>e <cmd>lua vim.diagnostic.open_float()<CR>
 
+nnoremap <Leader>r <cmd>lua vim.lsp.buf.rename()<cr>
+nnoremap <Leader>R <cmd>lua vim.lsp.buf.code_action()<cr>
+
 " copy to clipboard
 vnoremap  <leader>y  "+y
 nnoremap  <leader>Y  "+yg_
@@ -63,7 +66,7 @@ if !exists('g:vscode') " if not using vim in vscode
     Plug 'arcticicestudio/nord-vim'
     Plug 'junegunn/seoul256.vim'
     Plug 'sainnhe/sonokai'
-    Plug 'ghifarit53/tokyonight-vim'
+    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
     Plug 'neovim/nvim-lspconfig'
     Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
@@ -74,7 +77,7 @@ if !exists('g:vscode') " if not using vim in vscode
     Plug 'jiangmiao/auto-pairs'
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'justinmk/vim-sneak'
-    Plug 'feline-nvim/feline.nvim'
+    Plug 'nvim-lualine/lualine.nvim'
     Plug 'kyazdani42/nvim-web-devicons' " for file icons
     Plug 'kyazdani42/nvim-tree.lua'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -99,7 +102,7 @@ if !exists('g:vscode') " if not using vim in vscode
     source $HOME/.config/nvim/plug-config/coq.vim
     source $HOME/.config/nvim/plug-config/clap.vim
     " source $HOME/.config/nvim/plug-config/lightline.vim
-    source $HOME/.config/nvim/plug-config/feline.lua
+    source $HOME/.config/nvim/plug-config/lualine.lua
     source $HOME/.config/nvim/plug-config/sneak.vim
     source $HOME/.config/nvim/plug-config/bufferline.vim
     source $HOME/.config/nvim/plug-config/floaterm.vim
@@ -111,11 +114,14 @@ if !exists('g:vscode') " if not using vim in vscode
     " COLORSCHEMES
     let g:seoul256_background = 235
     let g:seoul256_light_background = 252
-    let g:sonokai_style = 'shusia'
+    let g:sonokai_style = 'atlantis'
     "let g:sonokai_transparent_background = 1
     let g:tokyonight_style = 'night'
-    let g:tokyonight_enable_italic = 1
-    let g:tokyonight_current_word = 'bold'
+    let g:tokyonight_day_brightness = 1
+    let g:tokyonight_enable_italic = 0.3
+    let g:tokyonight_colors = {
+      \ 'comment': '#666777',
+    \}
     colorscheme tokyonight
 endif
 
@@ -134,12 +140,13 @@ set nowrap
 " FILE SETTINGS
 au FileType c setl sw=2 sts=2 tw=80 et commentstring=//\ %s
 au FileType cpp setl sw=4 sts=4 tw=80 et commentstring=//\ %s
+au FileType makefile setl noexpandtab sw=4 sts=4 tw=80 commentstring=//\ %s
 au FileType html setl sw=2 sts=2 tw=80 et
 au FileType javascript setl sw=2 sts=2 tw=80 et
 au FileType julia setl sw=4 sts=4 tw=80 et
 au FileType lilypond setl sw=2 sts=2 tw=100 et commentstring=%\ %s
 au FileType lua setl sw=4 sts=4 tw=80 et commentstring=--\ %s
-au FileType haskell setl sw=4 sts=4 tw=80 et commentstring=--\ %s
+au FileType haskell setl sw=2 sts=0 tw=80 et smarttab commentstring=--\ %s
 au FileType python setl sw=4 sts=4 tw=80 et
 au FIleType php setl sw=4 sts=4 tw=80 et
 au FileType sql setl sw=2 sts=2 tw=80 et
