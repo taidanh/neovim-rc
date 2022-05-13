@@ -72,6 +72,10 @@ if !exists('g:vscode') " if not using vim in vscode
     Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
     Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
     Plug 'ray-x/lsp_signature.nvim'
+    Plug 'mfussenegger/nvim-dap'
+    Plug 'rcarriga/nvim-dap-ui'
+    Plug 'mfussenegger/nvim-dap-python'
+    Plug 'jbyuki/one-small-step-for-vimkind'
     Plug 'github/copilot.vim'
     Plug 'wfxr/minimap.vim'
     Plug 'jiangmiao/auto-pairs'
@@ -110,6 +114,7 @@ if !exists('g:vscode') " if not using vim in vscode
     source $HOME/.config/nvim/plug-config/lsp.lua
     source $HOME/.config/nvim/plug-config/tree-sitter.lua
     source $HOME/.config/nvim/plug-config/nvim-tree.vim
+    source $HOME/.config/nvim/plug-config/dap/init.lua
 
     " COLORSCHEMES
     let g:seoul256_background = 235
