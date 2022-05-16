@@ -51,8 +51,10 @@ local function configure_exts()
 end
 
 local function configure_debuggers()
-  require("plug-config.dap.lua").setup()
-  -- require("plug-config.dap.python").setup()
+  package.path = package.path .. ";/Users/taidanh/.config/nvim/plug-config/dap/?.lua"
+  package.path = package.path .. ";/Users/taidanh/.config/nvim/plug-config/dap/?.lua"
+  require("lua").setup()
+  require("py").setup()
   -- require("plug-config.dap.rust").setup()
 end
 
@@ -60,7 +62,7 @@ function M.setup()
   configure() -- Configuration
   configure_exts() -- Extensions
   configure_debuggers() -- Debugger
-  require("config.dap.keymaps").setup() -- Keymaps
+  require("plug-config.dap.keymaps").setup() -- Keymaps
 end
 
 configure_debuggers()

@@ -1,5 +1,7 @@
 local M = {}
 
+local whichkey = require "which-key"
+
 -- local function keymap(lhs, rhs, desc)
 --   vim.keymap.set("n", lhs, rhs, { silent = true, desc = desc })
 -- end
@@ -31,11 +33,27 @@ function M.setup()
     },
   }
 
+  whichkey.register(keymap, {
+    mode = "n",
+    prefix = "<leader>",
+    buffer = nil,
+    silent = true,
+    noremap = true,
+    nowait = false,
+  })
+
   local keymap_v = {
     name = "Debug",
     e = { "<cmd>lua require'dapui'.eval()<cr>", "Evaluate" },
   }
-
+  whichkey.register(keymap_v, {
+    mode = "v",
+    prefix = "<leader>",
+    buffer = nil,
+    silent = true,
+    noremap = true,
+    nowait = false,
+  })
 end
 
 return M

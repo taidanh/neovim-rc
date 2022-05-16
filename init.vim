@@ -69,12 +69,16 @@ if !exists('g:vscode') " if not using vim in vscode
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
     Plug 'neovim/nvim-lspconfig'
+    Plug 'williamboman/nvim-lsp-installer'
     Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
     Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
     Plug 'ray-x/lsp_signature.nvim'
     Plug 'mfussenegger/nvim-dap'
+    Plug 'Pocco81/dap-buddy.nvim'
     Plug 'rcarriga/nvim-dap-ui'
     Plug 'mfussenegger/nvim-dap-python'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'simrat39/rust-tools.nvim'
     Plug 'jbyuki/one-small-step-for-vimkind'
     Plug 'github/copilot.vim'
     Plug 'wfxr/minimap.vim'
@@ -87,7 +91,6 @@ if !exists('g:vscode') " if not using vim in vscode
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'glapa-grossklag/elsa.vim'
     Plug 'akinsho/bufferline.nvim'
-    Plug 'nvim-lua/plenary.nvim'
     Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
     Plug 'voldikss/vim-floaterm'
 endif
@@ -105,7 +108,6 @@ if !exists('g:vscode') " if not using vim in vscode
     " CONFIG SOURCE
     source $HOME/.config/nvim/plug-config/coq.vim
     source $HOME/.config/nvim/plug-config/clap.vim
-    " source $HOME/.config/nvim/plug-config/lightline.vim
     source $HOME/.config/nvim/plug-config/lualine.lua
     source $HOME/.config/nvim/plug-config/sneak.vim
     source $HOME/.config/nvim/plug-config/bufferline.vim
@@ -115,6 +117,14 @@ if !exists('g:vscode') " if not using vim in vscode
     source $HOME/.config/nvim/plug-config/tree-sitter.lua
     source $HOME/.config/nvim/plug-config/nvim-tree.vim
     source $HOME/.config/nvim/plug-config/dap/init.lua
+    source $HOME/.config/nvim/plug-config/keymaps.lua
+
+" Make sure that vim is in the 
+" correct directory on open
+augroup cdpwd
+    autocmd!
+    autocmd VimEnter * cd $PWD
+augroup END
 
     " COLORSCHEMES
     let g:seoul256_background = 235

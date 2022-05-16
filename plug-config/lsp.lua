@@ -1,3 +1,5 @@
+require("nvim-lsp-installer").setup {}
+
 local lsp = require "lspconfig"
 local coq = require "coq"
 cfg = {
@@ -34,8 +36,18 @@ lsp.pyright.setup{coq.lsp_ensure_capabilities()}
 -- | '__| | | / __| __|
 -- | |  | |_| \__ \ |_ 
 -- |_|   \__,_|___/\__|
+local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/'
+local codelldb_path = extension_path .. 'adapter/codelldb'
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 
-lsp.rls.setup{coq.lsp_ensure_capabilities()}
+local opts = {
+    dap = {
+        adapter = require('rust-tools.dap').get_codelldb_adapter(
+            codelldb_path, liblldb_path)
+    }
+}
+
+require('rust-tools').setup(opts)
 
 --  _               _        _ _ 
 -- | |             | |      | | |
