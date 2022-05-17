@@ -52,7 +52,7 @@ end
 
 local function configure_debuggers()
   package.path = package.path .. ";/Users/taidanh/.config/nvim/plug-config/dap/?.lua"
-  package.path = package.path .. ";/Users/taidanh/.config/nvim/plug-config/dap/?.lua"
+  package.path = package.path .. ";/Users/admin.tmdanh/.config/nvim/plug-config/dap/?.lua"
   require("lua").setup()
   require("py").setup()
   -- require("plug-config.dap.rust").setup()

@@ -8,6 +8,5 @@ end
 
 
 -- LSP
-map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-map('n', '<leader>K', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-
+-- map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+-- map('n', '<leader>K', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
